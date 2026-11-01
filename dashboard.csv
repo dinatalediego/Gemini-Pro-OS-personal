@@ -1,0 +1,2 @@
+job_id,title,type,state,current_gate,next_action,blocked_by,priority,flow_reserved,flow_spent,colab_cu_reserved,colab_cu_spent,updated_at
+JOB-2026-001-triple-alliance,Guerra de la Triple Alianza — rap battle,long_video,VISUAL_BIBLE,VISUAL_LOCK,Construir Character Bible y aprobar referencias maestras,,HIGH,250,0,0,0,2026-11-01
