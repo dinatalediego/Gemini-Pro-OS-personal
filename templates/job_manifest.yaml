@@ -1,0 +1,73 @@
+schema_version: "2.0"
+job_id: "JOB-YYYY-NNN-slug"
+title: ""
+type: "long_video" # long_video | short | research | software | analysis | learning | prototype
+owner: "Diego"
+created_at: "YYYY-MM-DD"
+updated_at: "YYYY-MM-DD"
+
+objective:
+  outcome: ""
+  audience: ""
+  definition_of_done: ""
+
+state:
+  current: "IDEA"
+  allowed:
+    - IDEA
+    - RESEARCH
+    - EVIDENCE_READY
+    - SCRIPT
+    - VISUAL_BIBLE
+    - STORYBOARD
+    - ASSET_GENERATION
+    - ASSEMBLY
+    - QA
+    - READY
+    - PUBLISHED
+    - POSTMORTEM
+  current_gate: ""
+  next_action: ""
+  blocked_by: []
+
+routing:
+  research: "Gemini Deep Research"
+  corpus: "Gemini Notebook"
+  quantitative: "Colab"
+  prototype: "AI Studio"
+  open_build: "Antigravity"
+  scoped_build: "Jules"
+  image_design: "Nano Banana 2.1"
+  video_generation: "Flow"
+  assembly: "Vids"
+
+artifacts:
+  brief: "brief.md"
+  research: "research.md"
+  evidence: "evidence.md"
+  script: "script.md"
+  visual_bible: "visual_bible.md"
+  storyboard: "storyboard.csv"
+  flow_prompts: "flow_prompts.md"
+  qa: "qa.md"
+  postmortem: "postmortem.md"
+
+storage:
+  github_path: "jobs/YYYY/JOB-YYYY-NNN-slug/"
+  drive_path: "Gemini Pro OS/Jobs/JOB-YYYY-NNN-slug/"
+  binary_policy: "Keep heavy binaries in Drive; keep prompts, metadata and decisions in GitHub."
+
+budget:
+  flow_reserved: 0
+  flow_spent: 0
+  colab_cu_reserved: 0
+  colab_cu_spent: 0
+
+decisions: []
+lessons: []
+
+metrics:
+  generation_attempts: 0
+  assets_keep: 0
+  assets_library: 0
+  assets_discard: 0
