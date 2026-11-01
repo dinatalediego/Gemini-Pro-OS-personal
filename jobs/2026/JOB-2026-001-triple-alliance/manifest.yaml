@@ -1,0 +1,63 @@
+schema_version: "2.0"
+job_id: "JOB-2026-001-triple-alliance"
+title: "Guerra de la Triple Alianza — rap battle histórica"
+type: "long_video"
+owner: "Diego"
+created_at: "2026-11-01"
+updated_at: "2026-11-01"
+
+objective:
+  outcome: "Producir un video histórico largo narrado como rap battle, manteniendo claridad histórica y continuidad visual entre personajes y escenas."
+  audience: "Audiencia general interesada en historia contada de forma entretenida."
+  definition_of_done: "Guion validado, visual bible bloqueada, storyboard completo, assets aprobados, master ensamblado y postmortem registrado."
+
+state:
+  current: "VISUAL_BIBLE"
+  current_gate: "VISUAL_LOCK"
+  next_action: "Construir y aprobar referencias maestras de personajes y mundo antes de animar en Flow."
+  blocked_by:
+    - "Importar o enlazar los archivos maestros de historia y letra usados en la conversación previa."
+
+routing:
+  research: "Gemini Deep Research"
+  corpus: "Gemini Notebook"
+  quantitative: "Colab"
+  image_design: "Nano Banana 2.1"
+  video_generation: "Flow"
+  assembly: "Vids"
+
+artifacts:
+  brief: "brief.md"
+  research: "research.md"
+  evidence: "evidence.md"
+  script: "script.md"
+  visual_bible: "visual_bible.md"
+  storyboard: "storyboard.csv"
+  flow_prompts: "flow_prompts.md"
+  qa: "qa.md"
+  postmortem: "postmortem.md"
+
+storage:
+  github_path: "jobs/2026/JOB-2026-001-triple-alliance/"
+  drive_path: "Gemini Pro OS/Jobs/JOB-2026-001-triple-alliance/"
+  binary_policy: "Heavy media stays in Drive; reproducible context stays in GitHub."
+
+budget:
+  flow_reserved: 250
+  flow_spent: 0
+  colab_cu_reserved: 0
+  colab_cu_spent: 0
+
+decisions:
+  - date: "2026-11-01"
+    decision: "Use image-first production: canonical stills and visual lock before Flow animation."
+  - date: "2026-11-01"
+    decision: "Use this project as the first end-to-end validation job for Gemini Pro OS Personal v2."
+
+lessons: []
+
+metrics:
+  generation_attempts: 0
+  assets_keep: 0
+  assets_library: 0
+  assets_discard: 0

@@ -1,0 +1,8 @@
+shot_id,start,end,section,purpose,narration,visual,source_asset,tool,model_test,model_final,continuity_required,max_credits,status,asset_state,notes
+S01,00:00,00:08,hook,open tension,,Cinematic confrontation tableau,,Nano Banana 2.1 / Flow,Nano Banana 2.1,Flow,yes,20,PENDING,DRAFT,Design still first; animate only after visual lock
+S02,00:08,00:18,context,orient geography,,19th-century South America map treatment,,Colab / Nano Banana 2.1,,,no,0,PENDING,DRAFT,Factual labels must come from verified research
+S03,00:18,00:28,character,introduce Paraguay,,Paraguay canonical performer entrance,CHARACTER-PY,Nano Banana 2.1 / Flow,Nano Banana 2.1,Flow,yes,20,PENDING,DRAFT,Face and wardrobe locked before animation
+S04,00:28,00:38,character,introduce Brazil,,Brazil canonical performer entrance,CHARACTER-BR,Nano Banana 2.1 / Flow,Nano Banana 2.1,Flow,yes,20,PENDING,DRAFT,Face and wardrobe locked before animation
+S05,00:38,00:48,character,introduce Argentina,,Argentina canonical performer entrance,CHARACTER-AR,Nano Banana 2.1 / Flow,Nano Banana 2.1,Flow,yes,20,PENDING,DRAFT,Face and wardrobe locked before animation
+S06,00:48,00:58,character,introduce Uruguay,,Uruguay canonical performer entrance,CHARACTER-UY,Nano Banana 2.1 / Flow,Nano Banana 2.1,Flow,yes,20,PENDING,DRAFT,Face and wardrobe locked before animation
+S07,00:58,01:08,parallel_context,separate Peru context,,Visual transition to what was happening in Peru,CHARACTER-PE,Nano Banana 2.1,,,yes,0,PENDING,DRAFT,Must not imply Peru is a belligerent in the Triple Alliance war
