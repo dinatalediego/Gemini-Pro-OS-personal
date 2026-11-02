@@ -1,0 +1,68 @@
+schema_version: "2.1"
+job_id: "JOB-2026-002-parana-callao"
+title: "Del Paraná al Callao"
+type: "historical_music_video"
+owner: "Diego"
+created_at: "2026-11-01"
+updated_at: "2026-11-01"
+
+objective:
+  outcome: "Producir una canción/video histórico largo que narre en paralelo la Guerra de la Triple Alianza y lo que ocurría en Perú entre 1864 y 1870, sin confundir ambos conflictos."
+  definition_of_done: "Historia aprobada; letra aprobada y congelada; diseño musical; audio aprobado y congelado; storyboard; selección de escenas generativas; Flow; edición final; QA y postmortem."
+
+state:
+  current: "LETTER_REVIEW"
+  current_gate: "LETTER_APPROVAL"
+  next_action: "Revisar y aprobar o corregir 02_LETRA_MASTER v0.2. Solo después crear versión congelada y avanzar a diseño musical."
+  blocked_by:
+    - "Aprobación explícita de la letra por el usuario."
+
+canonical_order:
+  - "HISTORY"
+  - "HISTORY_VERIFICATION"
+  - "LETTER"
+  - "LETTER_APPROVAL_AND_FREEZE"
+  - "MUSIC_DESIGN"
+  - "AUDIO"
+  - "AUDIO_APPROVAL_AND_FREEZE"
+  - "STORYBOARD"
+  - "GENERATIVE_SCENE_SELECTION"
+  - "FLOW"
+  - "FINAL_EDIT"
+  - "QA"
+  - "POSTMORTEM"
+
+gates:
+  HISTORY_LOCK: "01_HISTORIA_MASTER approved"
+  LETTER_LOCK: "02_LETRA_MASTER approved and frozen"
+  AUDIO_LOCK: "03_AUDIO_MASTER approved and frozen"
+  STORYBOARD_LOCK: "04_STORYBOARD_MASTER approved"
+  GENERATIVE_BUDGET_GATE: "Every video-generation shot has purpose, duration, need and prompt before spending credits"
+
+routing:
+  research: "Gemini Deep Research"
+  corpus: "Gemini Notebook"
+  music_design: "Gemini / selected audio workflow after LETTER_LOCK"
+  image_design: "Nano Banana 2.1 only after AUDIO_LOCK when storyboard requires it"
+  video_generation: "Flow only after STORYBOARD_LOCK and GENERATIVE_BUDGET_GATE"
+  assembly: "Vids"
+
+artifacts:
+  history_master: "01_HISTORIA_MASTER.md"
+  letter_master: "02_LETRA_MASTER.md"
+  audio_master: "03_AUDIO_MASTER.md"
+  storyboard_master: "04_STORYBOARD_MASTER.md"
+  qa: "qa.md"
+  postmortem: "postmortem.md"
+
+historical_rules:
+  - "Perú no integra la Triple Alianza militar."
+  - "Del Paraná al Callao es un puente narrativo, no una ruta militar real."
+  - "No inventar testigos ni citas históricas."
+  - "No usar cifras demográficas o de mortalidad controvertidas como hechos cerrados."
+  - "Aplicar correcciones históricas primero al HISTORY MASTER y luego revisar impactos aguas abajo."
+
+maturity:
+  current_level: "L2_STRUCTURED"
+  target_level: "L5_MASTERY"
+  mastery_signal: "Cada artefacto downstream puede rastrearse a un master aprobado, una decisión y un gate."
