@@ -5,7 +5,7 @@ Sistema operativo personal para convertir la suscripción **Google AI Pro** en p
 > Objetivo operativo: producir conocimiento, software, análisis y contenido audiovisual reutilizable, reduciendo al mínimo el trabajo manual de mover contexto entre herramientas.
 
 **Última verificación de beneficios:** 2026-10-31.  
-**Versión operativa:** v2 — job-oriented orchestration.
+**Versión operativa:** v2.1 — governed jobs + mastery ladder.
 
 ## North Star
 
@@ -51,13 +51,17 @@ Componentes canónicos:
 - [`templates/job_manifest.yaml`](templates/job_manifest.yaml) — fuente operativa de verdad por job.
 - [`templates/storyboard.csv`](templates/storyboard.csv) — control por plano para producción audiovisual.
 - [`templates/visual_bible.md`](templates/visual_bible.md) — identidad visual, continuidad y restricciones.
-- [`dashboard.csv`](dashboard.csv) — vista ejecutiva de jobs activos, gates y próxima acción.
+- [`dashboard.csv`](dashboard.csv) — vista ejecutiva de jobs activos, gates, madurez y próxima acción.
+- [`docs/05_mastery_ladder.md`](docs/05_mastery_ladder.md) — camino medible L0 → L5 MASTERY.
 
-Primer job end-to-end:
+## Jobs de validación
 
-- `JOB-2026-001-triple-alliance` — Guerra de la Triple Alianza como rap battle histórica.
+- `JOB-2026-001-triple-alliance` — rap battle histórica; valida **image-first → Character Locks → Visual Lock → Flow**.
+- `JOB-2026-002-parana-callao` — canción histórica narrativa; valida **History Master → Letter Lock → Audio Lock → Storyboard → Flow**.
 
-## State machine
+Los dos jobs pueden compartir hechos históricos, pero **no comparten guion ni gates**. Perú no se presenta como miembro de la Triple Alianza militar.
+
+## State machine base
 
 ```text
 IDEA
@@ -66,9 +70,9 @@ RESEARCH
   ↓
 EVIDENCE_READY
   ↓
-SCRIPT
+SCRIPT / MASTER
   ↓
-VISUAL_BIBLE
+LOCK
   ↓
 STORYBOARD
   ↓
@@ -85,7 +89,7 @@ PUBLISHED
 POSTMORTEM
 ```
 
-No se avanza porque “ya abrimos otra app”. Se avanza cuando el gate del estado actual está satisfecho.
+Cada tipo de job especializa esta máquina. No se avanza porque “ya abrimos otra app”; se avanza cuando el gate del estado actual está satisfecho.
 
 ## Meta mensual: 10 outputs
 
@@ -155,6 +159,7 @@ Ver detalles en:
 - [`docs/02_video_pipeline.md`](docs/02_video_pipeline.md)
 - [`docs/03_tool_routing.md`](docs/03_tool_routing.md)
 - [`docs/04_v2_orchestration.md`](docs/04_v2_orchestration.md)
+- [`docs/05_mastery_ladder.md`](docs/05_mastery_ladder.md)
 - [`templates/video_brief.md`](templates/video_brief.md)
 
 ## Regla image-first para video largo
@@ -163,24 +168,27 @@ Un video de 10–15 minutos **no debe intentar ser 10–15 minutos de video gene
 
 La unidad de producción v2 es:
 
-**tesis → evidencia → guion → Visual Bible → storyboard → frames aprobados → movimiento → montaje**
+**tesis → evidencia/master → lock → storyboard → frames aprobados → movimiento → montaje**
 
-Antes de Flow:
+Para jobs visuales como JOB-001:
 
 1. Nano Banana 2.1 fija identidad de personajes.
-2. Nano Banana 2.1 fija mundo, composición y estilo.
-3. Se aprueban start/end frames cuando corresponda.
-4. Flow recibe una intención de movimiento, no el problema completo de diseño.
+2. Cada personaje supera Character Lock.
+3. Se fijan mundo, composición y lineup.
+4. `VISUAL_LOCK = PASS`.
+5. Flow recibe una intención de movimiento sobre referencias aprobadas.
 
-## Cadencia semanal v2
+Para jobs editoriales como JOB-002:
 
-- **Día 1 — THINK:** pregunta + Deep Research → `brief.md` / `research.md`.
-- **Día 2 — KNOW:** Notebook + evidencia → `evidence.md`.
-- **Día 3 — DESIGN:** guion + Visual Bible + storyboard + Nano Banana.
-- **Día 4 — PRODUCE:** Colab + Nano Banana + Flow → assets.
-- **Día 5 — ASSEMBLE:** Vids + QA + derivados + postmortem.
+1. History Master gobierna hechos.
+2. Letter Master debe aprobarse y congelarse.
+3. Solo entonces se diseña música/audio.
+4. Audio aprobado gobierna storyboard y duración.
+5. Flow aparece únicamente después del storyboard y del gate de gasto generativo.
 
-Meta: **1 video largo por semana**, sin comprar software adicional como condición de entrada.
+## Cadencia
+
+La semana de 5 días sigue siendo una guía para jobs que ya tienen sus gates upstream resueltos. **Nunca reemplaza el orden canónico de un job.** Si una letra no está aprobada, el calendario no autoriza saltar a video.
 
 ## Asset lifecycle
 
@@ -193,18 +201,13 @@ Cada asset generado recibe un estado:
 
 Así, incluso los intentos no publicados dejan aprendizaje y la biblioteca audiovisual acumula valor.
 
-## Nivel de automatización
+## Camino a maestría
 
-v2 comienza intencionalmente en **L2 — structured automation**:
+v2.1 parte en **L2 — STRUCTURED**. El objetivo no es saltar a autonomía, sino progresar:
 
-- crear jobs;
-- crear estructura estándar;
-- conservar estado;
-- registrar gates;
-- producir handoffs pequeños;
-- mostrar la próxima acción.
+**L0 AD HOC → L1 ROUTED → L2 STRUCTURED → L3 MEASURED → L4 LEARNING → L5 MASTERY**
 
-No se salta directamente a un agente autónomo. Primero se construye una operación observable y reproducible.
+La regla para declarar L5 es exigente: **3 jobs consecutivos con Mastery Score ≥90** y al menos un patrón/asset reutilizado entre ellos. Ver [`docs/05_mastery_ladder.md`](docs/05_mastery_ladder.md).
 
 ## Fuentes oficiales verificadas
 
