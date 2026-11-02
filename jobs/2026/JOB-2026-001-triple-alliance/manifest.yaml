@@ -1,4 +1,4 @@
-schema_version: "2.1"
+schema_version: "2.2"
 job_id: "JOB-2026-001-triple-alliance"
 title: "Guerra de la Triple Alianza — rap battle histórica"
 type: "long_video"
@@ -19,7 +19,8 @@ historical_boundary:
 state:
   current: "VISUAL_BIBLE"
   current_gate: "CHARACTER_LOCK_PARAGUAY"
-  next_action: "Ejecutar el prompt packet de Paraguay en Google Flow con Nano Banana 2.1 y aprobar full body + portrait + turnaround antes de avanzar a Brasil."
+  gate_status: "ITERATE"
+  next_action: "Ejecutar prompt_packets/01b_paraguay_retry.md usando el full-body de Attempt 01 como anchor; producir A2 full body históricamente refinado + B portrait + C turnaround con back view; repetir QA 12/12."
   blocked_by: []
 
 routing:
@@ -44,10 +45,11 @@ visual_lock_acceptance:
   required_per_character:
     - "full_body"
     - "portrait"
-    - "turnaround_or_costume_reference"
+    - "true_turnaround_with_back_view"
   pass_when:
     - "face_identity_consistent"
     - "costume_language_consistent"
+    - "historical_visual_reference_alignment"
     - "country_role_readable_without_caption"
     - "period_language_is_1860s_not_modern_streetwear"
     - "no_historical_role_confusion"
@@ -56,6 +58,8 @@ artifacts:
   visual_bible: "visual_bible.md"
   storyboard: "storyboard.csv"
   prompt_packet_paraguay: "prompt_packets/01_paraguay.md"
+  prompt_packet_paraguay_retry: "prompt_packets/01b_paraguay_retry.md"
+  qa_paraguay_attempt_01: "qa/01_paraguay_attempt_01.md"
   flow_prompts: "flow_prompts.md"
   qa: "qa.md"
   postmortem: "postmortem.md"
@@ -77,6 +81,8 @@ decisions:
     decision: "Canonical visual lock must be produced in Google Flow with Nano Banana 2.1."
   - date: "2026-11-01"
     decision: "Separate rap battle from Del Paraná al Callao to avoid mixing two different narrative products."
+  - date: "2026-11-01"
+    decision: "Attempt 01 preserves identity well but does not pass CHARACTER_LOCK_PARAGUAY because portrait is missing, turnaround lacks a back view, costume details drift, and historical visual alignment must be tightened before canon."
 
 maturity:
   current_level: "L2_STRUCTURED"
@@ -84,9 +90,11 @@ maturity:
   next_capability: "Reproducible visual gate with measured retries, approvals and reusable references."
 
 metrics:
-  nano_banana_attempts: 0
+  nano_banana_attempts: 1
   character_locks_passed: 0
   flow_video_attempts: 0
-  assets_keep: 0
+  assets_keep: 1
   assets_library: 0
   assets_discard: 0
+  current_gate_pass_count: 7
+  current_gate_total_criteria: 12
