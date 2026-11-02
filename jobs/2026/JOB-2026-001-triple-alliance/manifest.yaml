@@ -1,4 +1,4 @@
-schema_version: "2.0"
+schema_version: "2.1"
 job_id: "JOB-2026-001-triple-alliance"
 title: "Guerra de la Triple Alianza — rap battle histórica"
 type: "long_video"
@@ -7,32 +7,55 @@ created_at: "2026-11-01"
 updated_at: "2026-11-01"
 
 objective:
-  outcome: "Producir un video histórico largo narrado como rap battle, manteniendo claridad histórica y continuidad visual entre personajes y escenas."
+  outcome: "Producir una rap battle histórica visualmente potente entre Paraguay, Brasil, Argentina y Uruguay, con Perú como observador/interludio explícitamente no beligerante."
   audience: "Audiencia general interesada en historia contada de forma entretenida."
-  definition_of_done: "Guion validado, visual bible bloqueada, storyboard completo, assets aprobados, master ensamblado y postmortem registrado."
+  definition_of_done: "Premisa y roles históricos aprobados, Character Locks completos, World Lock aprobado, storyboard completo, assets aprobados, master ensamblado y postmortem registrado."
+
+historical_boundary:
+  rule: "Perú NO integra la Triple Alianza militar. Puede aparecer solo como observador/interludio paralelo de época."
+  source_job: "JOB-2026-002-parana-callao"
+  source_policy: "Usar JOB-002 como referencia factual; no reutilizar su letra como guion de JOB-001."
 
 state:
   current: "VISUAL_BIBLE"
-  current_gate: "VISUAL_LOCK"
-  next_action: "Construir y aprobar referencias maestras de personajes y mundo antes de animar en Flow."
-  blocked_by:
-    - "Importar o enlazar los archivos maestros de historia y letra usados en la conversación previa."
+  current_gate: "CHARACTER_LOCK_PARAGUAY"
+  next_action: "Ejecutar el prompt packet de Paraguay en Google Flow con Nano Banana 2.1 y aprobar full body + portrait + turnaround antes de avanzar a Brasil."
+  blocked_by: []
 
 routing:
   research: "Gemini Deep Research"
   corpus: "Gemini Notebook"
   quantitative: "Colab"
-  image_design: "Nano Banana 2.1"
-  video_generation: "Flow"
+  image_design: "Nano Banana 2.1 in Google Flow"
+  video_generation: "Flow / Veo only after VISUAL_LOCK"
   assembly: "Vids"
 
+visual_lock_sequence:
+  - "CHARACTER_LOCK_PARAGUAY"
+  - "CHARACTER_LOCK_BRAZIL"
+  - "CHARACTER_LOCK_ARGENTINA"
+  - "CHARACTER_LOCK_URUGUAY"
+  - "CHARACTER_LOCK_PERU_OBSERVER"
+  - "WORLD_LOCK"
+  - "LINEUP_LOCK"
+  - "VISUAL_LOCK"
+
+visual_lock_acceptance:
+  required_per_character:
+    - "full_body"
+    - "portrait"
+    - "turnaround_or_costume_reference"
+  pass_when:
+    - "face_identity_consistent"
+    - "costume_language_consistent"
+    - "country_role_readable_without_caption"
+    - "period_language_is_1860s_not_modern_streetwear"
+    - "no_historical_role_confusion"
+
 artifacts:
-  brief: "brief.md"
-  research: "research.md"
-  evidence: "evidence.md"
-  script: "script.md"
   visual_bible: "visual_bible.md"
   storyboard: "storyboard.csv"
+  prompt_packet_paraguay: "prompt_packets/01_paraguay.md"
   flow_prompts: "flow_prompts.md"
   qa: "qa.md"
   postmortem: "postmortem.md"
@@ -45,19 +68,25 @@ storage:
 budget:
   flow_reserved: 250
   flow_spent: 0
-  colab_cu_reserved: 0
-  colab_cu_spent: 0
+  rule: "No gastar video generativo en identidad o composición que pueda cerrarse con imagen primero."
 
 decisions:
   - date: "2026-11-01"
-    decision: "Use image-first production: canonical stills and visual lock before Flow animation."
+    decision: "ChatGPT-generated concept art is reference-only and does not count as Google VISUAL_LOCK."
   - date: "2026-11-01"
-    decision: "Use this project as the first end-to-end validation job for Gemini Pro OS Personal v2."
+    decision: "Canonical visual lock must be produced in Google Flow with Nano Banana 2.1."
+  - date: "2026-11-01"
+    decision: "Separate rap battle from Del Paraná al Callao to avoid mixing two different narrative products."
 
-lessons: []
+maturity:
+  current_level: "L2_STRUCTURED"
+  target_level: "L5_MASTERY"
+  next_capability: "Reproducible visual gate with measured retries, approvals and reusable references."
 
 metrics:
-  generation_attempts: 0
+  nano_banana_attempts: 0
+  character_locks_passed: 0
+  flow_video_attempts: 0
   assets_keep: 0
   assets_library: 0
   assets_discard: 0
