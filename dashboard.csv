@@ -1,2 +1,3 @@
-job_id,title,type,state,current_gate,next_action,blocked_by,priority,flow_reserved,flow_spent,colab_cu_reserved,colab_cu_spent,updated_at
-JOB-2026-001-triple-alliance,Guerra de la Triple Alianza — rap battle,long_video,VISUAL_BIBLE,VISUAL_LOCK,Construir Character Bible y aprobar referencias maestras,,HIGH,250,0,0,0,2026-11-01
+job_id,title,type,state,current_gate,next_action,blocked_by,priority,maturity_level,mastery_score,flow_reserved,flow_spent,colab_cu_reserved,colab_cu_spent,updated_at
+JOB-2026-001-triple-alliance,Guerra de la Triple Alianza — rap battle,long_video,VISUAL_BIBLE,CHARACTER_LOCK_PARAGUAY,Ejecutar Paraguay full body + portrait + turnaround en Nano Banana 2.1,,HIGH,L2_STRUCTURED,,250,0,0,0,2026-11-01
+JOB-2026-002-parana-callao,Del Paraná al Callao,historical_music_video,LETTER_REVIEW,LETTER_APPROVAL,Revisar y aprobar/corregir 02_LETRA_MASTER v0.2,Aprobación explícita de la letra,HIGH,L2_STRUCTURED,,0,0,0,0,2026-11-01
